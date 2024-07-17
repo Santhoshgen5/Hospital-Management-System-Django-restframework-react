@@ -1,0 +1,24 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.myvideo{
+    
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    
+}
+.videocontainer{
+    position: relative;
+}
+.content{
+    font-size: large;
+    color: white;
+    position: absolute;
+    bottom: 120px;
+    left: 30px;
+}
+
