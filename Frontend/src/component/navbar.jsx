@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import HomePage from '../pages/homepage'
 import Login from '../pages/homepage'
 import '../assets/css/main.css'
-import Logo from '../assets/img/mayo-clinic-logo.svg'
+import Logo from '../assets/img/logo.png'
 import { useState, useEffect } from 'react'
 
 

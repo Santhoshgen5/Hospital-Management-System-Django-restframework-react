@@ -5,7 +5,7 @@ import '../assets/css/dashboard.css';
 import { FaGem, FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Sidebar = ({ user_name = 'User', profile_pic = '' }) => {
+const sidebar = ({ user_name = 'User', profile_pic = '' }) => {
   const [isLog, setIsLog] = useState(false);
   const [role, setRole] = useState('');
 
@@ -47,4 +47,4 @@ const Sidebar = ({ user_name = 'User', profile_pic = '' }) => {
   );
 };
 
-export default Sidebar;
+export default sidebar;

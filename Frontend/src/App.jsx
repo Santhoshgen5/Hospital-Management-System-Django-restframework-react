@@ -15,6 +15,8 @@ import Appoinments from './component/dashboardcomponents/appoinments'
 import Patientappointments from './component/appointmrnts/patientappointments'
 import Bookappointments from './component/appointmrnts/bookappoinments'
 import Appointmentbookform from './component/appointmrnts/appointmentbookform'
+import Nurseappointments from './component/appointmrnts/nurseappointment'
+import Bookappointments2 from './component/appointmrnts/bookappointments2'
 
 function App() {
   
@@ -34,7 +36,9 @@ function App() {
       <Route path="/register" element={<PrivateRoute><Register/></PrivateRoute> } />
       <Route path="/doctor-dashboard" element={<ProtectedRoute requiredrole={'doctor'}><Doctor_dasboard><Profile/></Doctor_dasboard></ProtectedRoute>} />
       <Route path="/doctor-dashboard/appointments" element={<ProtectedRoute requiredrole={'doctor'}><Doctor_dasboard><Appoinments/></Doctor_dasboard></ProtectedRoute>} />
-      <Route path="/nurse-dashboard" element={<ProtectedRoute requiredrole={'nurse'}><Profile/><Nurse_dasboard/></ProtectedRoute>} />
+      <Route path="/nurse-dashboard" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Profile/></Nurse_dasboard></ProtectedRoute>} />
+      <Route path="/nurse-dashboard/appointments" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Nurseappointments/></Nurse_dasboard></ProtectedRoute>}/>
+      <Route path="/nurse-dashboard/bookappointment" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Bookappointments2/></Nurse_dasboard></ProtectedRoute>}/>
       <Route path="/patient-dashboard" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Profile/></Patient_dasboard></ProtectedRoute>} />
       <Route path="/patient-dashboard/appoinments" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Patientappointments/></Patient_dasboard></ProtectedRoute>} />
       <Route path="/patient-dashboard/bookappointments/form/:id/:docname" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Bookappointments><Appointmentbookform/></Bookappointments></Patient_dasboard></ProtectedRoute>} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import api from '../../api';
-import '../../assets/css/profilepage.css'
+
 import propic from '../../assets/img/demoprofile.png';
 
 export default function Profile() {
@@ -55,13 +55,13 @@ export default function Profile() {
 
   return (
     <>
-      <div className="card mb-3" style={{ width: "1230px" }}>
+      <div className="card mb-3" style={{ width: "99%" }}>
         <div className="row g-0">
-          <div className="col-md-4">
+          <div className="col-12 col-sm-12 col-md-5 col-lg-5">
           <img  src={profile_pic} className="profimg img-fluid rounded-start" alt="Profile"/>
           </div>
           
-          <div className="col-md-8">
+          <div className="col-12 col-sm-12 col-md-7 col-lg-7">
             <div className="card-body">
               <h5 className="card-title">Profile</h5>
               <form onSubmit={managesubmit}>
