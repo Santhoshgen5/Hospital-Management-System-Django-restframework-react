@@ -1,7 +1,4 @@
-// import React, { useEffect, useState } from 'react';
-import '../assets/css/dashboard2.css';
-// import { FaGem, FaHeart } from 'react-icons/fa';
-// import { Link } from 'react-router-dom';
+
 
 // const Sidebar3 = ({ user_name = 'User', profile_pic = '' }) => {
 //   const [isLog, setIsLog] = useState(false);
@@ -51,12 +48,13 @@ import '../assets/css/dashboard2.css';
 
 
 
-
+import '../assets/css/sidebar.css'; 
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Sidebar from 'react-sidebar';
 
 
-const Sidebar3 = ({children}) => {
+const Sidebar3 = ({children, user_name = 'User', profile_pic = '' }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
 
@@ -69,30 +67,46 @@ const Sidebar3 = ({children}) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+
   return (
     <Sidebar
       sidebar={
         <div className="sidebar-content">
-          <div className="sidebar-logo">
-            <img src="logo.png" alt="Logo" />
-          </div>
           {!isMobile && (
-            <div className="sidebar-menu">
-              <div>Profile</div>
-              <div>Settings</div>
+            <>
+            <div className='backbtn'><Link  to={'/'}>Back</Link></div>
+            <div className="sidebar-logo" style={{textAlign:"center"}}>
+              <img style={{borderRadius:'50%',height:'140px',width:'140px'}} src={profile_pic} alt="Logo" />
             </div>
+            
+            <div className="sidebar-menu">
+              <div className='sidebaroptions'><Link  to={'/nurse-dashboard'}><i className="fa-solid fa-id-card"></i>Profile</Link></div>    
+              <div className='sidebaroptions'><Link  to={'/nurse-dashboard/appointments'}><i class="fa-solid fa-notes-medical"></i>All Appointments</Link></div>
+              <div className='sidebaroptions'><Link  to={'/nurse-dashboard/bookappointment'}><i class="fa-solid fa-user-doctor"></i>Book Appointment</Link></div>
+            </div>
+            </>
           )}
           {isMobile && (
-            <div className="sidebar-menu">
-              <i class="fa-solid fa-bars" ></i>
+            <>
+            <div className='backbtn'><Link  to={'/'}>Back</Link></div>
+            <div className="sidebar-logo" style={{textAlign:"center"}}>
+              <img style={{height:'54px', width:'54px', borderRadius:'50%'}} src={profile_pic} alt="Logo" />  
             </div>
+            <div className="sidebar-menu">
+              <div className='sidebaroptions'><Link  to={'/nurse-dashboard'}><i style={{fontSize:'25px'}} className="fa-solid fa-id-card"></i></Link></div>    
+              <div className='sidebaroptions'><Link  to={'/nurse-dashboard/appointments'}><i style={{fontSize:'25px'}} class="fa-solid fa-notes-medical"></i></Link></div>
+              <div className='sidebaroptions'><Link className='sidebaroptions' to={'/nurse-dashboard/bookappointment'}><i style={{fontSize:'25px'}} class="fa-solid fa-user-doctor"></i></Link></div>
+            </div>
+            </>
           )}
         </div>
       }
       
-      styles={{ sidebar: { background: 'white', width: isMobile ? '80px' : '200px' } }}
+      styles={{ sidebar: {  width: (isMobile) ? '80px' : '200px' } }}
+      
       docked={true}
       >
+      
       <div className="content">
         {children}
         

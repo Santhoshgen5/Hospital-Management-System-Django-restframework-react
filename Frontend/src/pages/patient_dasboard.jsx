@@ -4,7 +4,6 @@ import Navbar from '../component/navbar'
 import api from '../api'
 import { Link } from 'react-router-dom'
 import Sidebar2 from '../component/sidebar2'
-import '../assets/css/dashboard.css';
 import propic from '../assets/img/demoprofile.png'
 
 
@@ -45,18 +44,7 @@ export default function Patient_dasboard({children}) {
   return (
 
     <div className="dashboard_main">
-    {profile_details && <Sidebar2 user_name={profile_details.user_name.username} profile_pic={profile_pic}/>}
-    <div className="top-bar">
-        <Link className="sidebar-button" to={'/'}>Back</Link>
-        <h1>Patient Dashboard</h1>
-        <Link className="sidebar-button" to={'/logout'}>Logout</Link>
-       
-
-        
-    </div>
-    <div className="dashboard_content">
-      {children}
-    </div>
+    {profile_details && <Sidebar2 user_name={profile_details.user_name.username} profile_pic={profile_pic}>{children}</Sidebar2>}
     
     </div>
   );

@@ -14,11 +14,12 @@
 .videocontainer{
     position: relative;
 }
-.content{
+.videocontent{
     font-size: large;
     color: white;
     position: absolute;
     bottom: 120px;
     left: 30px;
+   
 }
 

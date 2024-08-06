@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Nurseappointments() {
     const [appointments, setAppointments] = useState([]);
+    const [option, setOption] = useState('all');
 
     useEffect(() => {
         const fetchAppointments = async () => {
@@ -14,15 +15,34 @@ export default function Nurseappointments() {
                 console.log(error);
             }
         };
-
+                   
         fetchAppointments();
     }, []);
-    
+
+    const optionchange = (e) => {
+        setOption(e.target.value);
+    };
+
+    const filteredAppointments = appointments.filter((appointment) => {
+        if (option === 'all') return true;
+        return appointment.status === option;
+    });
+
+   
     return (
         <>
             <h1>Appointments Details</h1>
+            <div style={{ margin: '18px 0px 30px 15px' }}>
+                <span style={{ marginRight: '5px' }}>Filter</span>
+                <select name="" id="" onChange={optionchange}>
+                    <option value="all">all</option>
+                    <option value="cancelled">cancelled</option>
+                    <option value="scheduled">scheduled</option>
+                    <option value="completed">completed</option>
+                </select>
+            </div>
             <ol>
-                {appointments.map((appointment) => (
+                {filteredAppointments.map((appointment) => (
 
                     <React.Fragment key={appointment.id}>
                     <li>

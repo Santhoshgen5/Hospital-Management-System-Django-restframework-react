@@ -2,6 +2,7 @@ import React from 'react';
 import api from '../../api';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import "../../assets/css/main.css"
 
 export default function Bookappointments({children}) {
     const [doctors, setDoctors] = useState([]);
@@ -23,17 +24,31 @@ export default function Bookappointments({children}) {
     return (
         <>
         <div className="row">
-            <div className="col-5">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-5">
                 <div>Book Appointments</div>
-                    <br />
-                    <h2>Doctors Lists</h2>
-                    {doctors.map((doc) => (
+                <br />
+                <h2>Doctors Lists</h2>
+                <table className='doctorappoitable'>
+                    <thead>
+                        <tr>
+                            <th className='doctorappoitable' >Doctor Name</th>
+                            <th className='doctorappoitable'>Book Appointment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {doctors.map((doc) => (
                         <React.Fragment key={doc.id}> 
-                            <span>{doc.username}</span>  <Link to={`/patient-dashboard/bookappointments/form/${doc.id}/${doc.username}`}>Book Appointment</Link><br /><br />
+                        <tr>
+                            <td className='doctorappoitable'>{doc.username}</td>
+                            <td className='doctorappoitable'><Link to={`/patient-dashboard/bookappointments/form/${doc.id}/${doc.username}`}>Book Appointment</Link></td>
+                        </tr>
                         </React.Fragment>
-                    ))}
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            <div className="col-7">
+
+            <div className="col-12 col-sm-12 col-md-6 col-lg-7">
                 {children}
             </div>
         </div>

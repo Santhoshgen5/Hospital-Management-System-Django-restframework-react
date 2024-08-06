@@ -36,7 +36,7 @@ export default function Nurse_dasboard({children}) {
     {profileDetails && (
       <Sidebar3 user_name={profileDetails.user_name.username} profile_pic={profile_pic} >{children}</Sidebar3>
     )}
-  </div>
+    </div>
     
 
   )

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../api";
 import { Link } from "react-router-dom";
 
-export default function Appointmentbookform({userid}) {
+export default function Appointmentbookform() {
   const { docname } = useParams()
   const { id } = useParams()
   const [datatime, setDatetime ] = useState()
@@ -36,7 +36,6 @@ export default function Appointmentbookform({userid}) {
         "doctor": id,
 
       });
-      console.log(response);
       alert('Appointment Booked Successfully')
       navigate('/patient-dashboard/bookappoinments')
         

@@ -15,6 +15,7 @@ import Appoinments from './component/dashboardcomponents/appoinments'
 import Patientappointments from './component/appointmrnts/patientappointments'
 import Bookappointments from './component/appointmrnts/bookappoinments'
 import Appointmentbookform from './component/appointmrnts/appointmentbookform'
+import Appointmentbookform2 from './component/appointmrnts/appointmentbookform2'
 import Nurseappointments from './component/appointmrnts/nurseappointment'
 import Bookappointments2 from './component/appointmrnts/bookappointments2'
 
@@ -28,6 +29,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+
     <Routes>
       <Route path='*' element={<PageNotFount/>} />
       <Route path="/" element={<HomePage/>} />
@@ -39,8 +41,9 @@ function App() {
       <Route path="/nurse-dashboard" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Profile/></Nurse_dasboard></ProtectedRoute>} />
       <Route path="/nurse-dashboard/appointments" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Nurseappointments/></Nurse_dasboard></ProtectedRoute>}/>
       <Route path="/nurse-dashboard/bookappointment" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Bookappointments2/></Nurse_dasboard></ProtectedRoute>}/>
-      <Route path="/patient-dashboard" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Profile/></Patient_dasboard></ProtectedRoute>} />
-      <Route path="/patient-dashboard/appoinments" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Patientappointments/></Patient_dasboard></ProtectedRoute>} />
+      <Route path="/nurse-dashboard/bookappointments/form/:id/:docname" element={<ProtectedRoute requiredrole={'nurse'}><Nurse_dasboard><Bookappointments2><Appointmentbookform2/></Bookappointments2></Nurse_dasboard></ProtectedRoute>} />
+      <Route path="/patient-dashboard" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Profile /></Patient_dasboard></ProtectedRoute>} />
+      <Route path="/patient-dashboard/appoinments" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard ><Patientappointments /></Patient_dasboard></ProtectedRoute>} />
       <Route path="/patient-dashboard/bookappointments/form/:id/:docname" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Bookappointments><Appointmentbookform/></Bookappointments></Patient_dasboard></ProtectedRoute>} />
       <Route path="/patient-dashboard/bookappoinments" element={<ProtectedRoute requiredrole={'patient'}><Patient_dasboard><Bookappointments/></Patient_dasboard></ProtectedRoute>} />
     </Routes>

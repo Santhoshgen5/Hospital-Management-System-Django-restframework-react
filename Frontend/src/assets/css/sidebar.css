@@ -1,0 +1,58 @@
+.content {
+    padding: 16px;
+    
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    
+   
+  }
+  
+  .sidebar-content {
+    background-color: black;
+    height: 100vh;
+  }
+  
+  .sidebar-logo {
+    padding: 16px;
+  }
+  
+  
+  
+  .sidebar-menu div {
+    text-align: center;
+  }
+
+  .sidebaroptions{
+    padding-top: 20px;
+    text-decoration: none;
+
+  }
+
+  .sidebaroptions>a{
+    text-decoration: none;
+    color: white;
+  }
+
+  .fa-solid{
+    padding-right: 5px;
+  }
+  
+  .backbtn{
+    background-color: rgb(65, 65, 64);
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    
+   
+  }
+  .backbtn>a{
+    text-decoration: none;
+    color: white;
+    
+  }

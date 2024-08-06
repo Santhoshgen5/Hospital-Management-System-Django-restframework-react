@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../component/navbar';
 import api from '../api';
-import Sidebar from '../component/sidebar';
-import '../assets/css/dashboard.css';
+import Sidebar1 from '../component/sidebar';
 import { Link } from 'react-router-dom';
 import propic from '../assets/img/demoprofile.png';
 
@@ -35,16 +34,9 @@ export default function Doctor_dashboard({ children }) {
   return (
     <div className="dashboard_main">
       {profileDetails && (
-        <Sidebar user_name={profileDetails.user_name.username} profile_pic={profile_pic} />
+        <Sidebar1 user_name={profileDetails.user_name.username} profile_pic={profile_pic} >{children}</Sidebar1>
       )}
-      <div className="top-bar">
-        <Link className="sidebar-button" to={'/'}>Back</Link>
-        <h1>Doctor Dashboard</h1>
-        <Link className="sidebar-button" to={'/logout'}>Logout</Link>
-      </div>
-      <div className="dashboard_content">
-        {children}
-      </div>
+  
     </div>
   );
 }

@@ -23,17 +23,30 @@ export default function Bookappointments2({children}) {
     return (
         <>
         <div className="row">
-            <div className="col-5">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-5">
                 <div>Book Appointments</div>
                     <br />
                     <h2>Doctors Lists</h2>
-                    {doctors.map((doc) => (
+                    <table className='doctorappoitable'>
+                    <thead>
+                        <tr>
+                            <th className='doctorappoitable' >Doctor Name</th>
+                            <th className='doctorappoitable'>Book Appointment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {doctors.map((doc) => (
                         <React.Fragment key={doc.id}> 
-                            <span>{doc.username}</span>  <Link to={`/nurse-dashboard/bookappointments/form2/:id/:docname/${doc.id}/${doc.username}`}>Book Appointment</Link><br /><br />
+                        <tr>
+                            <td className='doctorappoitable'>{doc.username}</td>
+                            <td className='doctorappoitable'><Link to={`/nurse-dashboard/bookappointments/form/${doc.id}/${doc.username}`}>Book Appointment</Link></td>
+                        </tr>
                         </React.Fragment>
-                    ))}
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            <div className="col-7">
+            <div className="col-12 col-sm-12 col-md-6 col-lg-7">
                 {children}
             </div>
         </div>
